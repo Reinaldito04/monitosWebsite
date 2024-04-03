@@ -1,0 +1,36 @@
+---
+import CardAnimation from "./CardAnimation"
+---
+
+
+<div class="container contenedor-card ">
+    <CardAnimation client:load/>
+
+    <div class="contenedor-texto">
+        <h4>The Fox Story</h4>
+        <p>14.5$    </p>
+    </div>
+</div>
+
+<style>
+    .contenedor-card{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        outline: 2px solid rgb(250, 250, 250);
+        width:  500px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        margin-top: 20px;
+
+    }
+    p{
+        font-weight: bolder;
+        color: white;
+        font-size: 18px;
+    }
+    h4{
+        color: white;
+    }
+</style>

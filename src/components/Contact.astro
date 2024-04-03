@@ -1,0 +1,83 @@
+<section class="footer">
+
+	
+		<div class="container-fluid contenedor">
+            <h3>Contact Us</h3>
+            <input placeholder="Email" type="text" class="form-control" name="" id="">
+            <input placeholder="Name" type="text" class="form-control mt-2" name="" id="">
+            <input placeholder="Phone" type="text" class="form-control mt-2" name="" id="">
+            <div class="contenedor-boton">
+                <button>Send</button>
+            </div>
+            <div class="contenedor-iconos">
+
+                <div class="element">
+                    <img src="/facebook.svg" alt="">
+                </div>
+                <div class="element">
+                    <img src="/instagram.svg" alt="">
+                </div>
+                <div class="element">
+                    <img src="/x.svg" alt="">
+                </div>
+            </div>
+           
+        </div>
+  </section>
+
+  <style>
+    .contenedor-iconos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .element img{
+        height: 50px;
+        width: 50px;
+        margin:0 auto;
+        padding-inline: 5px;
+        transition: all 0.8s;
+    }
+    .element img:hover{
+        transform: translateY(-10px);
+    }
+    .contenedor-boton{
+        display: flex;
+        margin-top: 10px;
+    }
+    button{
+        border: none;
+        border-radius: 15px;
+        margin-top: 20px;
+        padding: 8px 16px;
+        margin: 0 auto;
+        text-align: center;
+        transition: all 0.8s;
+       
+    }
+    button:hover{
+        padding: 10px 18px;
+    }
+   .contenedor{
+    position: absolute;
+    margin-top: 35%;
+    width: 50%;
+    margin-left: 25%;
+   }
+   h3{
+    text-align: center;
+    color: white;
+}
+   input{
+    width: 50%;
+    margin: 0 auto;
+   }
+     .footer {
+    background-image: url("/footerBackground.png");
+    height: 150dvh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+ 
+  </style>

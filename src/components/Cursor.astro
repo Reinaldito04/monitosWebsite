@@ -1,0 +1,116 @@
+<div id="contenedor">
+    <div id="cursor">
+        <img src="pata.png" alt="" class="pata">
+       
+    </div>
+  </div>
+
+
+
+<style>
+
+    body{
+
+        cursor: none;
+    }
+    #cursor {
+
+   
+  z-index: 9999; /* Para asegurar que esté por encima de otros elementos */
+}
+#cursor img{
+   
+    width: 40px !important;
+    height: 40px !important;
+}
+    .pata {
+       
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        rotate: 20deg;
+        display: none; /* Inicialmente ocultamos las imágenes */
+        transition: opacity 0.5s ease-in-out;
+        
+    }
+   
+    #contenedor {   
+ 
+  position: absolute;
+}
+</style>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+    var cursor = document.getElementById("cursor");
+    var contenedor = document.getElementById("contenedor");
+    let estilos = [
+        { width: "40px", marginLeft: "-80px" ,rotate: "15deg",opacity :"0.7",transition:"all 0.3s",scale:0.9}, 
+        { width: "35px",marginLeft: "-150px",rotate: "20deg",opacity :"0.5",transition:"all 0.5s",scale:0.8},
+        { width: "30px", marginLeft: "-200px" ,rotate: "25deg",opacity :"0.4",transition:"all 0.8s",scale:0.7},
+        { width: "25px", marginLeft: "-250px",rotate: "30deg",opacity :"0.2",transition:"all 1s" ,scale:0.6},
+        { width: "20px", marginLeft: "-300px",rotate: "35deg" ,opacity :"0.1",transition:"all  1.5s",scale:0.5}
+    ];
+
+    // Crear imágenes de la pata
+    for (var i = 0; i <4; i++) {
+        var pata = document.createElement("img");
+        pata.src = "pata.png";
+        pata.alt = "pata";
+        pata.className = "pata";
+        pata.style.width = estilos[i].width;
+        pata.style.marginLeft = estilos[i].marginLeft;
+        pata.style.rotate=estilos[i].rotate;
+        pata.style.position = "absolute";
+        pata.style.opacity=estilos[i].opacity;
+        pata.style.transition = estilos[i].transition;
+        
+        cursor.appendChild(pata);
+    }
+
+    document.addEventListener("mousemove", function(event) {
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        // Mostrar imágenes de la pata y ajustar su posición
+        var patas = document.getElementsByClassName("pata");
+        for (var i = 0; i < patas.length; i++) {
+            var pata = patas[i];
+            var offsetX = pata.offsetWidth / 2;
+            var offsetY = pata.offsetHeight / 2;
+            pata.style.left = mouseX - offsetX + "px";
+            pata.style.top = mouseY - offsetY + "px";
+            pata.style.display = "block";
+           
+        }
+      
+        for (let i = 1; i < patas.length; i++) {
+            let pata = patas[i];
+            var offsetX = pata.offsetWidth / 2;
+            var desviacion = i * 20; // Incremento de 20px para cada pata
+            pata.style.left = (mouseX - offsetX + desviacion) + "px";
+            
+        }
+       
+        setTimeout(function(){
+            for (var i = 1; i < patas.length; i++){
+                patas[i].style.scale="1";
+                patas[i].style.opacity="1";
+               
+            }
+        },100);
+        setTimeout(function(){
+            for (var i = 1; i < patas.length; i++){
+                patas[i].style.scale=estilos[i].scale;
+                patas[i].style.opacity="0";
+            }
+        },500);
+        // Ocultar imágenes de la pata después de un tiempo
+        setTimeout(function() {
+            for (var i = 1; i < patas.length; i++) {
+                patas[i].style.display = "block";
+                
+            }
+        }, 200000);
+    });
+});
+</script>

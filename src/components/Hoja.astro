@@ -1,0 +1,80 @@
+<div class="container-hoja">
+
+    <img src="/hoja.png" alt="">
+</div>
+
+<div class="container-hoja hoja2">
+    <img src="/hoja.png" alt="">
+</div>
+<style>
+   .container-hoja {
+    position: absolute;
+    top: 0; /* Colocamos la hoja al principio de la página */
+    animation: caidaZigZagHoja 20s    ease-in-out infinite; /
+}
+.hoja2{
+    margin-left: 90%;
+    transform: scaleX(1);
+    animation: caidaZigZagHoja2 20s    ease-in-out infinite; /
+}
+
+
+
+@keyframes caidaZigZagHoja2 {
+    0%, 100% {
+        top: 0; /* Posición inicial y final de la hoja */
+        transform: translateY(0) translateX(20%) rotate(0deg); /* No rotar ni desplazar al inicio ni al final */
+    }
+    20%, 60% {
+        transform: translateY(calc(100vh - 80px)) translateX(-40%) rotate(-180deg); /* Oscilación hacia la derecha */
+    }
+    40%, 80% {
+        transform: translateY(calc(100vh - 80px)) translateX(40%) rotate(-360deg); /* Oscilación hacia la izquierda */
+       /* Desaparecer al llegar al final */
+    }
+    99.89% {
+        top: 210dvh;
+        
+        /* Mantener la hoja invisible antes de reiniciar */
+    }
+    99.9%{
+        opacity: 0;
+    }
+    100% {
+        top: 0; /* Volver al inicio */
+        opacity: 1; /* Aparecer al inicio */
+    }
+}
+
+@keyframes caidaZigZagHoja {
+    0%, 100% {
+        top: 0; /* Posición inicial y final de la hoja */
+        transform: translateY(0) translateX(-20%) rotate(0deg); /* No rotar ni desplazar al inicio ni al final */
+    }
+    20%, 60% {
+        transform: translateY(calc(100vh - 80px)) translateX(40%) rotate(180deg); /* Oscilación hacia la derecha */
+    }
+    40%, 80% {
+        transform: translateY(calc(100vh - 80px)) translateX(-40%) rotate(360deg); /* Oscilación hacia la izquierda */
+       /* Desaparecer al llegar al final */
+    }
+    99.89% {
+        top: 210dvh;
+        
+        /* Mantener la hoja invisible antes de reiniciar */
+    }
+    99.9%{
+        opacity: 0;
+    }
+    100% {
+        top: 0; /* Volver al inicio */
+        opacity: 1; /* Aparecer al inicio */
+    }
+}
+.container-hoja {
+    overflow: hidden;
+}
+img {
+    height: 80px;
+}
+</style>
